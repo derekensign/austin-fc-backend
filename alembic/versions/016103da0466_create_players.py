@@ -17,8 +17,17 @@ depends_on = None
 
 
 def upgrade():
-    pass
+    op.create_table(
+    'players',
+    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('name', sa.String, nullable=False, unique=True),
+    sa.Column('number', sa.Integer),
+    sa.Column('age', sa.Integer),
+    sa.Column('position', sa.String),
+    sa.Column('nationality', sa.String),
+    )
 
 
 def downgrade():
-    pass
+    op.drop_table('players')
+    

@@ -17,8 +17,12 @@ depends_on = None
 
 
 def upgrade():
-    pass
-
+    op.create_table(
+    'attended_games',
+    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('user_id', sa.Integer),
+    sa.Column('fixture_id', sa.Integer))
 
 def downgrade():
-    pass
+    op.drop_table('attended_games')
+

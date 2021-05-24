@@ -17,8 +17,14 @@ depends_on = None
 
 
 def upgrade():
-    pass
+    op.create_table(
+    'fixtures',
+    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('date', sa.Date),
+    sa.Column('score', sa.String))
 
 
 def downgrade():
-    pass
+    op.drop_table('fixtures')
+    
+
