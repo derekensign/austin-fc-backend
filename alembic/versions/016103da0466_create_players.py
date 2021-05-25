@@ -25,6 +25,7 @@ def upgrade():
     sa.Column('age', sa.Integer),
     sa.Column('position', sa.String),
     sa.Column('nationality', sa.String),
+    sa.Column('image', sa.String)
     )
 
 

@@ -8,7 +8,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String)
     password = db.Column(db.String)
-    fixtures = db.relationoship('User', 
+    fixtures = db.relationship('User', 
     secondary="attended_games", backref="users")
     def to_json(self):
         return {
@@ -26,8 +26,8 @@ class Player(db.Model):
     age = db.Column(db.Integer)
     position = db.Column(db.String)
     nationality = db.Column(db.String)
-    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
-    category = db.relationship('Category', backref="posts")
+    image = db.Column(db.String)
+
     def to_json(self):
         return {
             "id": self.id,
@@ -36,6 +36,7 @@ class Player(db.Model):
             "age": self.age,
             "position": self.position,
             "nationality": self.nationality,
+            "image": self.image
         }
 
 class Fixture(db.Model):
@@ -44,7 +45,7 @@ class Fixture(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date)
     number = db.Column(db.Integer)
-    users = db.relationship('User', secondary="attended_games", backref="fixtures")
+    # user = db.relationship('User', secondary="attended_games", backref="fixtures")
     def to_json(self):
         return {
             "id": self.id,
