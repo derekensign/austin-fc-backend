@@ -259,7 +259,7 @@ def root():
   return 'ok'
 
 app.route('/', methods=["GET"])(root)
-# app.route('/roster', methods=["POST"])(roster_load)
+app.route('/roster', methods=["POST"])(roster_load)
 app.route('/roster', methods=["GET"])(get_roster)
 
 if __name__ == '__main__':
