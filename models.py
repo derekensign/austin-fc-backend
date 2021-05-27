@@ -6,13 +6,15 @@ class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String)
+    email = db.Column(db.String)
+    name = db.Column(db.String)
     password = db.Column(db.String)
     fixtures = db.relationship('User', 
     secondary="attended_games", backref="users")
     def to_json(self):
         return {
             "id": self.id,
+            "email": self.email,
             "name": self.name,
             "password": self.password,
         }
@@ -49,7 +51,7 @@ class Fixture(db.Model):
     def to_json(self):
         return {
             "id": self.id,
-            "name": self.name,
+            "number": self.number,
         }
 
 class Attended_Game(db.Model):
