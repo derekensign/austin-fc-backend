@@ -1,6 +1,7 @@
 alembic==1.6.2
 click==8.0.0
 Flask==2.0.0
+Flask-Bcrypt==0.7.1
 Flask-Cors==3.0.10
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.0
