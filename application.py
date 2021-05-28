@@ -303,6 +303,8 @@ def verify_user():
   return { "user": user.to_json(), "user_id": user.id}
 app.route('/users/verify', methods=["GET"])(verify_user)
 
+# def add_fixture():
+
 app.route('/', methods=["GET"])(root)
 app.route('/roster', methods=["POST"])(roster_load)
 app.route('/roster', methods=["GET"])(get_roster)
