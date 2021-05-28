@@ -51,7 +51,14 @@ class Fixture(db.Model):
     def to_json(self):
         return {
             "id": self.id,
-            "number": self.number,
+            "fixture_id": self.fixture_id,
+            "date": self.date,
+            "awaygoals": self.awaygoals,
+            "awaylogo": self.awaylogo,
+            "awayname": self.awayname,
+            "homegoals": self.homegoals,
+            "homename": self.homename,
+            "homelogo": self.homelogo
         }
 
 class Attended_Game(db.Model):

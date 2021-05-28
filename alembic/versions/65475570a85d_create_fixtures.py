@@ -20,8 +20,14 @@ def upgrade():
     op.create_table(
     'fixtures',
     sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('fixture_id', sa.Integer),
     sa.Column('date', sa.Date),
-    sa.Column('score', sa.String))
+    sa.Column('awaygoals', sa.String),
+    sa.Column('awayname', sa.String),
+    sa.Column('awaylogo', sa.String),
+    sa.Column('homegoals', sa.String),
+    sa.Column('homename', sa.String),
+    sa.Column('homelogo', sa.String))
 
 
 def downgrade():
